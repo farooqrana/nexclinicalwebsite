@@ -16,28 +16,28 @@ export default function ClinicalSupportPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-20">
+      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block bg-purple-500/30 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-block bg-primary-500/30 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Clinical Note Support (E-scribe)
             </div>
             <h1 className="text-5xl md:text-6xl font-bold font-heading mb-6">
               Reclaim Your Evenings. Let Us Handle the Notes.
             </h1>
-            <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
               Professional medical scribes document patient encounters in real-time—so you can focus on your patients, 
               not your keyboard. Say goodbye to after-hours charting.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-purple-700 hover:bg-gray-100" asChild>
+              <Button size="lg" className="bg-white text-primary-700 hover:bg-gray-100" asChild>
                 <a href="/contact">Book Free Demo</a>
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
                 <a href="/pricing">View Pricing</a>
               </Button>
             </div>
-            <p className="text-purple-200 text-sm mt-6">
+            <p className="text-primary-100 text-sm mt-6">
               Trusted by 80+ physicians • HIPAA compliant • 2-3 minute review time per note
             </p>
           </div>
@@ -113,17 +113,17 @@ export default function ClinicalSupportPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2 border-purple-100">
+              <Card className="border-2 border-primary-100">
                 <CardHeader>
-                  <div className="w-14 h-14 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-14 h-14 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <CardTitle className="text-purple-900">Revenue Impact</CardTitle>
+                  <CardTitle className="text-primary-900">Revenue Impact</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-3xl font-bold text-purple-600 mb-3">$64K/year</p>
+                  <p className="text-3xl font-bold text-primary-600 mb-3">$64K/year</p>
                   <p className="text-gray-700">
                     Average lost revenue per physician due to documentation inefficiency and burnout-related 
                     productivity decline. You could see more patients if documentation weren't the bottleneck.
@@ -275,10 +275,10 @@ export default function ClinicalSupportPage() {
               </Card>
 
               {/* Hybrid Model */}
-              <Card className="bg-purple-50 border-2 border-purple-200">
+              <Card className="bg-primary-50 border-2 border-primary-200">
                 <CardHeader>
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-primary-600 rounded-lg flex items-center justify-center">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
@@ -298,7 +298,7 @@ export default function ClinicalSupportPage() {
                       "Dictation transcription (you dictate, we transcribe and structure)",
                     ].map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
                         <span className="text-gray-700">{item}</span>
@@ -375,9 +375,9 @@ export default function ClinicalSupportPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-200">
+              <Card className="bg-gradient-to-br from-primary-50 to-primary-100 border-2 border-primary-200">
                 <CardContent className="pt-6 text-center">
-                  <p className="text-5xl font-bold text-purple-700 mb-2">94%</p>
+                  <p className="text-5xl font-bold text-primary-700 mb-2">94%</p>
                   <p className="text-gray-800 font-semibold">Physician Satisfaction Rate</p>
                   <p className="text-sm text-gray-600 mt-2">"Would recommend to colleagues"</p>
                 </CardContent>
@@ -455,24 +455,24 @@ export default function ClinicalSupportPage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <Card className="bg-gradient-to-br from-purple-600 to-purple-800 text-white">
+            <Card className="bg-gradient-to-br from-primary-600 to-primary-800 text-white">
               <CardContent className="pt-12 pb-12 text-center">
                 <h2 className="text-3xl font-bold font-heading mb-4">
                   Ready to Reclaim Your Evenings?
                 </h2>
-                <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+                <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
                   Clinical note support (E-scribe) starts at just $695/month for up to 40 patient encounters. 
                   More affordable than hiring an in-person scribe, with greater flexibility.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="bg-white text-purple-700 hover:bg-gray-100" asChild>
+                  <Button size="lg" className="bg-white text-primary-700 hover:bg-gray-100" asChild>
                     <a href="/contact">Schedule Free Demo</a>
                   </Button>
                   <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
                     <a href="/pricing">View Pricing Details</a>
                   </Button>
                 </div>
-                <p className="text-purple-200 text-sm mt-6">
+                <p className="text-primary-200 text-sm mt-6">
                   Try it for 60 days risk-free • No setup fees • Cancel anytime
                 </p>
               </CardContent>
@@ -487,19 +487,19 @@ export default function ClinicalSupportPage() {
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               <div>
-                <p className="text-3xl font-bold text-purple-600">80+</p>
+                <p className="text-3xl font-bold text-primary-600">80+</p>
                 <p className="text-sm text-gray-600 mt-1">Physicians Served</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-purple-600">2-3min</p>
+                <p className="text-3xl font-bold text-primary-600">2-3min</p>
                 <p className="text-sm text-gray-600 mt-1">Review Time per Note</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-purple-600">12hrs</p>
+                <p className="text-3xl font-bold text-primary-600">12hrs</p>
                 <p className="text-sm text-gray-600 mt-1">Saved per Week</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-purple-600">100%</p>
+                <p className="text-3xl font-bold text-primary-600">100%</p>
                 <p className="text-sm text-gray-600 mt-1">HIPAA Compliant</p>
               </div>
             </div>
