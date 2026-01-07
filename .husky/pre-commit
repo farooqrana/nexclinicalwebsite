@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh" 2>/dev/null || true
+
+# Type check frontend
+pnpm -C apps/frontend type-check
+if [ $? -ne 0 ]; then
+	echo "Type check failed. Aborting commit."
+	exit 1
+fi
+
+# Lint & format staged files in frontend
+pnpm -C apps/frontend lint-staged
+RESULT=$?
+if [ $RESULT -ne 0 ]; then
+	echo "lint-staged failed. Aborting commit."
+	exit $RESULT
+fi
+
+exit 0
