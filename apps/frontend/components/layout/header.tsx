@@ -22,7 +22,7 @@ export function Header() {
   const resourcesMenu = [
     { name: "Revenue Cycle Management", href: "/resources/revenue-cycle" },
     { name: "Website+Marketing", href: "/resources/website-marketing" },
-    { name: "24/7 Answering Service", href: "#" },
+    { name: "24/7 Answering Service", href: "/resources/answering-service" },
   ];
 
   const handleServicesEnter = () => {

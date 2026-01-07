@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -33,7 +34,7 @@ export function Footer() {
               <ul className="space-y-2 text-gray-400">
                 <li><a href="/resources/revenue-cycle" className="hover:text-white transition-colors">Revenue Cycle Management</a></li>
                 <li><a href="/resources/website-marketing" className="hover:text-white transition-colors">Website+Marketing</a></li>
-                <li><span className="text-gray-500">24/7 Answering Service</span></li>
+                <li><Link href="/resources/answering-service" className="text-gray-700 hover:text-primary-600 transition-colors">24/7 Answering Service</Link></li>
               </ul>
             </div>
 
