@@ -94,11 +94,13 @@ After Vercel finishes:
 
 3. Submit
 4. Check your email inbox - you should receive the submission within 30 seconds
+Note: If your Resend sending domain is not yet verified, the UI may show a known error banner after submission in production. This is expected until DNS verification completes. Verify your domain in the Resend Dashboard and retry.
 
 **If email doesn't arrive:**
 - Check spam folder
 - Wait 1 minute (sometimes delayed)
 - Verify RESEND_API_KEY in Vercel environment variables
+ - Verify your Resend sending domain (add DNS TXT records and confirm verification)
 - Check Vercel logs: Dashboard → Deployments → Logs
 
 ---
@@ -127,6 +129,28 @@ After Vercel finishes:
 Your production URL: **https://nexclincalwebsite.vercel.app**
 
 ---
+
+## Run E2E Against Production (Optional but Recommended)
+
+Use the production URL as the base and skip starting a local server. The Playwright config automatically honors `BASE_URL` or `PLAYWRIGHT_BASE_URL`.
+
+Windows PowerShell examples:
+
+```
+# Full matrix (desktop + mobile projects)
+$env:BASE_URL="https://nexclincalwebsite.vercel.app"; pnpm exec playwright test --config=playwright.config.ts --reporter=list --timeout=60000
+
+# Desktop-only (Chromium)
+$env:BASE_URL="https://nexclincalwebsite.vercel.app"; pnpm exec playwright test --project=chromium --config=playwright.config.ts
+
+# Per-project (e.g., Mobile Safari)
+$env:BASE_URL="https://nexclincalwebsite.vercel.app"; pnpm exec playwright test --project="Mobile Safari" --config=playwright.config.ts
+```
+
+Notes:
+- Some rate-limiting scenarios are skipped on remote base URLs due to serverless variability.
+- Success assertions for form submissions allow a known error banner when the Resend domain is not yet verified — once verified, strict success-only assertions can be restored.
+
 
 ## Optional: Set Custom Domain
 
