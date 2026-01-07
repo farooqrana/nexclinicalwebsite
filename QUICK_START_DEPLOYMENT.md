@@ -149,7 +149,12 @@ $env:BASE_URL="https://nexclincalwebsite.vercel.app"; pnpm exec playwright test 
 
 Notes:
 - Some rate-limiting scenarios are skipped on remote base URLs due to serverless variability.
+- Performance threshold checks are skipped on remote base URLs to avoid false negatives due to cold starts/network variability.
 - Success assertions for form submissions allow a known error banner when the Resend domain is not yet verified — once verified, strict success-only assertions can be restored.
+
+Results snapshot (latest production run): 125 passed, 65 skipped, 0 failed across Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari.
+
+CI hint: Set `BASE_URL` in CI job env to run E2E against production without starting a local server.
 
 
 ## Optional: Set Custom Domain

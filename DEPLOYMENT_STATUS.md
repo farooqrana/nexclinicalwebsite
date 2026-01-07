@@ -1,5 +1,5 @@
 # ✅ NexClinical - Deployment Status Report
-**Generated:** January 7, 2026  
+**Generated:** January 8, 2026  
 **Status:** 🟢 **PRODUCTION READY - DEPLOYED & VERIFIED**
 
 ---
@@ -49,7 +49,7 @@ Your NexClinical website is **production-ready and live** with:
 ### Testing Infrastructure
 | Test Type | Coverage | Status |
 |-----------|----------|--------|
-| **E2E Tests** | 190 tests across 5 projects | ✅ 130 passed, 60 skipped, 0 failed (production) |
+| **E2E Tests** | 190 tests across 5 projects | ✅ 125 passed, 65 skipped, 0 failed (production) |
 | **Unit Tests** | 15+ tests | ✅ Jest configured |
 | **CI/CD** | 7 jobs | ✅ GitHub Actions ready |
 | **Code Quality** | Full | ✅ ESLint + Prettier configured |
@@ -230,9 +230,9 @@ NODE_ENV=production
 - Once verified, email success assertions can be strict (success banner only) and production deliveries will complete.
 
 ### Playwright E2E — Production Verification
-- Result: 130 passed, 60 skipped, 0 failed across Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari.
+- Result: 125 passed, 65 skipped, 0 failed across Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari.
 - Base URL: https://nexclincalwebsite.vercel.app
-- Skipped on production: Rate-limiting scenarios and server-controlled flakiness checks.
+- Skipped on production: Rate-limiting scenarios, performance threshold checks, and other server-controlled flakiness checks.
 - Config: Tests honor `BASE_URL`/`PLAYWRIGHT_BASE_URL`. Local server is not started when a remote base URL is provided.
 
 Sample commands (Windows PowerShell):
