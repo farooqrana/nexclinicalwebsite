@@ -8,7 +8,7 @@ A modern, secure, and performant foundation for rebuilding nexclinical.com from 
 
 - **Frontend**: Next.js 15 with TypeScript, Tailwind CSS, and shadcn/ui ✅
 - **CMS**: Sanity CMS with medical practice schemas ✅
-- **Studio**: Integrated at `/studio` route ✅
+- **Studio**: Standalone Sanity Studio app (React 18) ✅
 - **Build**: Successfully compiling ✅
 - **Deployed**: https://nexclincalwebsite.vercel.app/ ✅
 
@@ -28,7 +28,7 @@ pnpm dev
 ```
 
 - **Website**: http://localhost:3000
-- **CMS Studio**: http://localhost:3000/studio
+- **Sanity Studio (local)**: http://localhost:3333 (apps/sanity-studio)
 
 ### 2. Build for Production
 
@@ -45,7 +45,7 @@ See [SANITY_CMS_SETUP.md](./docs/SANITY_CMS_SETUP.md) for complete setup instruc
 **Quick Setup:**
 1. Create project at https://www.sanity.io/manage
 2. Update `.env.local` with your project ID
-3. Access Studio at `/studio`
+3. Access Studio at sanity.io or local dev at `http://localhost:3333`
 
 ## 📖 Documentation
 
@@ -73,10 +73,11 @@ All comprehensive documentation is in the `docs/` folder:
 **CMS**
 - Sanity CMS (Headless)
 - GROQ Query Language
-- Sanity Studio (Embedded)
+- Sanity Studio (Standalone)
 
 **Hosting**
-- Frontend + Studio: Vercel
+- Frontend: Vercel
+- Studio: sanity.io (managed)
 - CMS Backend: Sanity Cloud (managed)
 - CDN: Sanity Asset CDN
 
@@ -128,7 +129,7 @@ NEXT_PUBLIC_SANITY_PROJECT_ID=your-actual-project-id
 NEXT_PUBLIC_SANITY_DATASET=production
 ```
 
-4. Access Sanity Studio at http://localhost:3000/studio
+4. Access Sanity Studio at http://localhost:3333 (apps/sanity-studio)
 
 ## 🎨 Design System
 
