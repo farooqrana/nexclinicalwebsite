@@ -245,84 +245,119 @@ export async function generateMetadata({ params }) {
 
 ## 🚀 Execution Plan (Next 5 Days)
 
-### Day 1: Global Settings + Homepage Hero
+### ✅ Day 1: Block Components (COMPLETED)
 ```
 Tasks:
-1. Create Sanity project at sanity.io
-2. Add project ID to .env files
-3. Populate Global Settings in Studio
-4. Convert homepage hero to use Sanity data
-5. Test live content editing
+✅ Created Sanity project (ID: htfikdkh)
+✅ Added project ID to all .env files
+✅ Built PageBuilder component (dynamic block renderer)
+✅ Built HeroBlock.tsx (200+ lines, full implementation)
+✅ Built ServicesBlock.tsx (grid layouts: 2/3/4 columns)
+✅ Created 7 stub blocks (Features, Testimonials, FAQ, CTA, Team, Contact, RichText)
+✅ Installed Sanity Studio dependencies
+✅ Started Studio at localhost:3333
+✅ Validated TypeScript build (no errors)
+✅ Committed all work to git
+
+Files Created:
+- apps/frontend/components/blocks/PageBuilder.tsx
+- apps/frontend/components/blocks/HeroBlock.tsx
+- apps/frontend/components/blocks/ServicesBlock.tsx
+- apps/frontend/components/blocks/*.tsx (7 stubs)
+- apps/frontend/components/blocks/index.ts
+
+Result: Foundation ready for CMS-powered pages
+```
+
+### 🔄 Day 2: Sanity Schemas + Sample Content (IN PROGRESS)
+```
+Tasks:
+1. Create schema files for all content types (Page, GlobalSettings, Service, Testimonial, FAQ)
+2. Create schema files for all blocks (hero, services, features, etc.)
+3. Populate Global Settings in Studio (company info, stats, contact)
+4. Create 3-4 sample services
+5. Create sample homepage with Hero + Services blocks
+6. Wire homepage to fetch from Sanity and use PageBuilder
 
 Files:
-- apps/frontend/app/page.tsx (update hero)
-- apps/frontend/.env.local (add project ID)
+- apps/sanity-studio/schemaTypes/*.ts (all schemas)
+- apps/frontend/app/page.tsx (wire to Sanity)
+- apps/frontend/lib/sanity.ts (GROQ queries)
 
-Result: Hero section editable in Sanity
+Result: Homepage powered by Sanity, content editable in Studio
 ```
 
-### Day 2: Services Section + Stats
+### Day 3: Complete Testimonials + FAQ Blocks
 ```
 Tasks:
-1. Create 3-4 services in Sanity Studio
-2. Update homepage services grid to fetch from Sanity
-3. Create stats in Global Settings
-4. Wire stats section to Sanity
+1. Replace TestimonialsBlock stub with full carousel implementation
+2. Replace FAQBlock stub with accordion implementation  
+3. Create sample testimonials in Studio
+4. Create sample FAQ items in Studio
+5. Test adding testimonials/FAQs to homepage via pageBuilder
 
 Files:
-- apps/frontend/app/page.tsx (services + stats)
-- apps/frontend/components/sections/services.tsx
+- apps/frontend/components/blocks/TestimonialsBlock.tsx
+- apps/frontend/components/blocks/FAQBlock.tsx
 
-Result: Services + stats editable in CMS
+Result: Testimonials carousel + FAQ accordion working from CMS
 ```
 
-### Day 3: Testimonials + FAQ
+### Day 4: Dynamic [slug] Routing
 ```
 Tasks:
-1. Create testimonials in Sanity
-2. Wire testimonials carousel
-3. Create FAQ items in Sanity
-4. Wire FAQ accordion
+1. Create apps/frontend/app/[slug]/page.tsx for dynamic pages
+2. Implement generateStaticParams to pre-render all pages
+3. Add metadata generation from Sanity SEO fields
+4. Test creating new pages in Studio that auto-render
+5. Create About page and Services pages in Studio
 
 Files:
-- apps/frontend/components/sections/testimonials.tsx
-- apps/frontend/components/sections/faq.tsx
+- apps/frontend/app/[slug]/page.tsx
+- apps/frontend/lib/sanity.ts (add getAllPages query)
 
-Result: Social proof editable in CMS
+Result: Any page created in Studio renders automatically
 ```
 
-### Day 4: Page Builder Implementation
-```
-Tasks:
-1. Create block renderer component
-2. Convert homepage to use pageBuilder array
-3. Test drag-and-drop block ordering in Studio
-
-Files:
-- apps/frontend/components/blocks/index.tsx
-- apps/frontend/app/page.tsx (refactor to blocks)
-
-Result: Pages assembled from CMS blocks
-```
-
-### Day 5: Contact Form + Images
+### Day 5: Contact Form + Image Optimization
 ```
 Tasks:
-1. Wire contact form to API route
-2. Test form submission
-3. Upload images to Sanity
-4. Update image references to use Sanity CDN
+1. Create apps/frontend/app/api/contact/route.ts with Resend
+2. Wire contact form with proper validation (Zod)
+3. Test email delivery to team
+4. Upload hero images to Sanity
+5. Replace hardcoded image paths with Sanity CDN URLs
+6. Create CMS editing guide PDF for marketing team
 
 Files:
 - apps/frontend/app/api/contact/route.ts
 - apps/frontend/app/contact/page.tsx
+- CMS_EDITING_GUIDE.md (new)
 
-Result: Working contact form + optimized images
+Result: Working contact form + optimized images from Sanity CDN
 ```
 
 ---
 
-## 🎯 Success Criteria
+## 📊 Progress Tracker
+
+**Last Updated**: January 10, 2026
+
+| Day | Status | Time | Notes |
+|-----|--------|------|-------|
+| Day 1 | ✅ Complete | 2 hours | Block components created, Studio running |
+| Day 2 | 🔄 In Progress | - | Creating schemas + sample content |
+| Day 3 | ⏳ Pending | - | Testimonials + FAQ implementation |
+| Day 4 | ⏳ Pending | - | Dynamic routing |
+| Day 5 | ⏳ Pending | - | Contact form + images |
+
+**Sanity Project Details**:
+- Project ID: `htfikdkh`
+- Plan: Growth Trial (30 days)
+- Studio URL: http://localhost:3333
+- Production URL: https://nexclincalwebsite.vercel.app
+
+
 
 ### For NexClinical Agency Site:
 - ✅ Marketing team can edit homepage without developer
