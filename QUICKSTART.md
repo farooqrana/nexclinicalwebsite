@@ -2,14 +2,15 @@
 
 ## What We've Built
 
-A modern, secure, and performant foundation for rebuilding nexclinical.com from WordPress to a custom Next.js + Strapi headless CMS architecture.
+A modern, secure, and performant foundation for rebuilding nexclinical.com from WordPress to a custom Next.js + **Sanity CMS** headless architecture.
 
 ## ✅ Current Status
 
 - **Frontend**: Next.js 15 with TypeScript, Tailwind CSS, and shadcn/ui ✅
-- **Build**: Successfully compiling (102 kB total JS) ✅
-- **Documentation**: Complete technical docs ✅
-- **Design System**: Tokens and components defined ✅
+- **CMS**: Sanity CMS with medical practice schemas ✅
+- **Studio**: Integrated at `/studio` route ✅
+- **Build**: Successfully compiling ✅
+- **Deployed**: https://nexclincalwebsite.vercel.app/ ✅
 
 ## 📂 Project Location
 
@@ -26,7 +27,8 @@ cd c:\Nexclinical\nexclinical-rebuild\apps\frontend
 pnpm dev
 ```
 
-Open http://localhost:3000 to see the site.
+- **Website**: http://localhost:3000
+- **CMS Studio**: http://localhost:3000/studio
 
 ### 2. Build for Production
 
@@ -36,15 +38,24 @@ pnpm build
 pnpm start
 ```
 
+## 🏥 Sanity CMS Setup
+
+See [SANITY_CMS_SETUP.md](./docs/SANITY_CMS_SETUP.md) for complete setup instructions.
+
+**Quick Setup:**
+1. Create project at https://www.sanity.io/manage
+2. Update `.env.local` with your project ID
+3. Access Studio at `/studio`
+
 ## 📖 Documentation
 
 All comprehensive documentation is in the `docs/` folder:
 
 | Document | Purpose |
 |----------|---------|
+| [SANITY_CMS_SETUP.md](./docs/SANITY_CMS_SETUP.md) | **CMS setup and content modeling** |
 | [PROJECT_SUMMARY.md](./PROJECT_SUMMARY.md) | Overview, roadmap, next steps |
 | [architecture.md](./architecture.md) | Full stack, hosting, data flow |
-| [content-model.md](./content-model.md) | Strapi schema and components |
 | [deployment.md](./deployment.md) | Environment setup, CI/CD |
 | [security.md](./security.md) | Security hardening checklist |
 | [performance.md](./performance.md) | Optimization strategies |
@@ -59,16 +70,15 @@ All comprehensive documentation is in the `docs/` folder:
 - Tailwind CSS
 - shadcn/ui components
 
-**Backend** (Next Phase)
-- Strapi CMS
-- PostgreSQL (Neon)
-- Cloudflare R2 + CDN
+**CMS**
+- Sanity CMS (Headless)
+- GROQ Query Language
+- Sanity Studio (Embedded)
 
 **Hosting**
-- Frontend: Vercel
-- CMS: Render
-- DB: Neon
-- CDN: Cloudflare
+- Frontend + Studio: Vercel
+- CMS Backend: Sanity Cloud (managed)
+- CDN: Sanity Asset CDN
 
 ## 📋 Immediate Next Steps
 
@@ -107,14 +117,18 @@ npx shadcn@latest add textarea
 npx shadcn@latest add form
 ```
 
-### 3. Setup Strapi CMS
+### 3. Configure Sanity CMS
 
-Initialize Strapi in `apps/cms/`:
+1. Create a Sanity project at https://www.sanity.io/manage
+2. Copy your Project ID
+3. Update `.env.local`:
 
 ```bash
-cd apps/cms
-npx create-strapi-app@latest . --quickstart --typescript
+NEXT_PUBLIC_SANITY_PROJECT_ID=your-actual-project-id
+NEXT_PUBLIC_SANITY_DATASET=production
 ```
+
+4. Access Sanity Studio at http://localhost:3000/studio
 
 ## 🎨 Design System
 
