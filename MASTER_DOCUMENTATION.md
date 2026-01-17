@@ -257,3 +257,37 @@ Admin Email:              salman@nexclinical.com
 
 Last verified: January 14, 2026  
 All systems operational. Content management ready.
+
+---
+
+## **Senior Dev 1‑Pager**
+
+**Architecture (bullet diagram)**
+- **Frontend:** Next.js 15 (App Router), React 19, TypeScript
+- **UI:** Tailwind CSS + shadcn/ui
+- **CMS:** Sanity (Studio, GROQ, Image CDN)
+- **Content API:** Sanity client + GROQ in apps/frontend/lib/sanity.ts
+- **Rendering:** `PageBuilder` maps block `_type` → component
+- **Deployment:** Vercel (ISR 60s, edge cache, env vars)
+- **Email:** Resend API for contact form delivery
+
+**Data Flow (5 lines)**
+- Edit in Sanity Studio → Publish to `production` dataset
+- Next.js server components fetch via GROQ (Sanity client)
+- ISR cache revalidates every ~60s → fresh content served
+- Images resolved via Sanity CDN (imageUrlBuilder)
+- No redeploy required → content goes live within the revalidation window
+
+**Key Decisions & Trade‑offs**
+- **Sanity vs self‑hosted CMS:** Fast setup, hosted infra, CDN; trade‑off is vendor lock‑in vs full control
+- **App Router + ISR vs SSR only:** Better perf and caching; trade‑off is brief staleness window (≤60s)
+- **Blocks/Page Builder vs hardcoded pages:** Non‑dev editing and reuse; requires schema discipline and editorial training
+- **GROQ vs GraphQL:** Simple, powerful queries native to Sanity; smaller ecosystem/familiarity than GraphQL
+- **Resend vs SMTP:** Reliable API + analytics; trade‑off is cost vs running own mail server
+
+**Live Demo Checklist**
+- Show homepage pulling Services and Global Settings from Sanity
+- In Studio: edit a Service title/description → publish → refresh site after ~60s to confirm ISR update
+- Create a new `Page` with Hero + Services blocks → visit `/[slug]` to show dynamic routing
+- Submit contact form → verify email via Resend dashboard/inbox
+- Open Vercel project → show env vars (`NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`) and latest deploy logs
