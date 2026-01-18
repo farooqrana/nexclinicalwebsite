@@ -1,6 +1,0 @@
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "pnpm turbo build --filter=@nexclinical/frontend",
-  "outputDirectory": "apps/frontend/.next",
-  "installCommand": "pnpm install"
-}
