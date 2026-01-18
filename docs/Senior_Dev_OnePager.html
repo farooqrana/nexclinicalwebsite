@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>NexClinical — Senior Dev One‑Pager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0f172a; /* slate-900 */
+      --muted: #334155; /* slate-700 */
+      --accent: #0ea5e9; /* sky-500 */
+    }
+    @page { size: A4; margin: 0.5in; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif; line-height: 1.45; color: var(--text); background: var(--bg); }
+    .page { max-width: 800px; margin: 0 auto; }
+    h1 { font-size: 26px; margin: 0 0 8px; }
+    h2 { font-size: 18px; margin: 20px 0 8px; }
+    p, li { font-size: 13px; }
+    .header { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 12px; }
+    .tag { font-size: 12px; font-weight: 600; color: #0a7ac1; background: #e0f2fe; padding: 4px 8px; border-radius: 6px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 12px; }
+    ul { margin: 8px 0 0 18px; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 12px; background: #f8fafc; border: 1px solid #e2e8f0; padding: 2px 4px; border-radius: 4px; }
+    .footer { margin-top: 12px; font-size: 12px; color: var(--muted); }
+    .tight li { margin-bottom: 2px; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <div>
+        <h1>NexClinical — Senior Dev One‑Pager</h1>
+        <p class="mono">Last Updated: Jan 17, 2026 • Environment: Production</p>
+      </div>
+      <span class="tag">Next.js + Sanity • Vercel • Resend</span>
+    </div>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Architecture</h2>
+        <ul class="tight">
+          <li><strong>Frontend:</strong> Next.js 15 (App Router), React 19, TypeScript</li>
+          <li><strong>UI:</strong> Tailwind CSS, shadcn/ui</li>
+          <li><strong>CMS:</strong> Sanity Studio + GROQ + Image CDN</li>
+          <li><strong>Rendering:</strong> PageBuilder maps block <code>_type</code> → component</li>
+          <li><strong>Deployment:</strong> Vercel (ISR 60s, edge cache)</li>
+          <li><strong>Email:</strong> Resend API for contact form</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Data Flow (5 lines)</h2>
+        <ul class="tight">
+          <li>Edit in Sanity Studio → publish to <code>production</code></li>
+          <li>Next.js server components fetch via GROQ</li>
+          <li>ISR cache revalidates every ~60s</li>
+          <li>Images resolved via Sanity CDN</li>
+          <li>No redeploy → content goes live within revalidation window</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top: 14px;">
+      <h2>Key Decisions & Trade‑offs</h2>
+      <ul class="tight">
+        <li><strong>Sanity vs self‑hosted:</strong> Hosted, fast, CDN → vendor dependency</li>
+        <li><strong>ISR vs SSR only:</strong> Faster + cached → short staleness (≤60s)</li>
+        <li><strong>Blocks/Page Builder:</strong> Non‑dev editing → needs schema rigor</li>
+        <li><strong>GROQ vs GraphQL:</strong> Native/simple → smaller ecosystem</li>
+        <li><strong>Resend vs SMTP:</strong> Reliable insights → cost vs DIY</li>
+      </ul>
+    </section>
+
+    <section class="card" style="margin-top: 14px;">
+      <h2>Live Demo Checklist</h2>
+      <ul>
+        <li>Homepage reads Services + Global Settings from Sanity</li>
+        <li>Studio: edit a Service → publish → refresh after ~60s (ISR)</li>
+        <li>Create a <code>Page</code> with Hero + Services blocks → visit <code>/[slug]</code></li>
+        <li>Submit contact form → verify email via Resend</li>
+        <li>Open Vercel → show env vars + latest deploy logs</li>
+      </ul>
+    </section>
+
+    <div class="grid" style="margin-top: 14px;">
+      <section class="card">
+        <h2>Tech & URLs</h2>
+        <ul class="tight">
+          <li><strong>Frontend:</strong> https://nexclinical-frontend.vercel.app</li>
+          <li><strong>Sanity Studio:</strong> https://htfikdkh.sanity.studio</li>
+          <li><strong>Project ID:</strong> <code>htfikdkh</code> • <strong>Dataset:</strong> <code>production</code></li>
+          <li><strong>Repo:</strong> GitHub → farooqrana/nexclinicalwebsite</li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2>Key Files</h2>
+        <ul class="tight">
+          <li><code>apps/frontend/lib/sanity.ts</code> (client + GROQ)</li>
+          <li><code>apps/frontend/components/blocks/PageBuilder.tsx</code></li>
+          <li><code>apps/frontend/app/page.tsx</code> • <code>app/[slug]/page.tsx</code></li>
+          <li><code>scripts/create-sanity-content.js</code></li>
+        </ul>
+      </section>
+    </div>
+
+    <p class="footer">Environment vars (Vercel): <code>NEXT_PUBLIC_SANITY_PROJECT_ID=htfikdkh</code>, <code>NEXT_PUBLIC_SANITY_DATASET=production</code>, <code>RESEND_API_KEY</code></p>
+  </div>
+</body>
+</html>
