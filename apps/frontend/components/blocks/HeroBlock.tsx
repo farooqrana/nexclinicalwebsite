@@ -5,7 +5,7 @@
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/client";
+import { urlFor } from "@/lib/sanity";
 
 interface HeroBlockProps {
   data: {
