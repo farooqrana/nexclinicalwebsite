@@ -1,3 +1,4 @@
 {
-  "outputDirectory": "apps/frontend/.next"
+  "root": "apps/frontend",
+  "outputDirectory": ".next"
 }
