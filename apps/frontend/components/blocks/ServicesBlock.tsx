@@ -27,6 +27,14 @@ interface ServicesBlockProps {
 export function ServicesBlock({ data }: ServicesBlockProps) {
   const { heading, description, selectedServices = [], layout = "grid-3" } = data;
 
+  const isSanityImage = (icon: any) => {
+    try {
+      return !!(icon && icon.asset && typeof icon.asset._ref === "string" && icon.asset._ref.startsWith("image-"));
+    } catch {
+      return false;
+    }
+  };
+
   const gridClass =
     layout === "grid-2"
       ? "md:grid-cols-2"
@@ -58,12 +66,16 @@ export function ServicesBlock({ data }: ServicesBlockProps) {
                 <CardHeader>
                   {service.icon && (
                     <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
-                      <Image
-                        src={urlFor(service.icon).width(64).height(64).url()}
-                        alt={service.title}
-                        width={64}
-                        height={64}
-                      />
+                      {isSanityImage(service.icon) ? (
+                        <Image
+                          src={urlFor(service.icon).width(64).height(64).url()}
+                          alt={service.title}
+                          width={64}
+                          height={64}
+                        />
+                      ) : typeof service.icon === "string" ? (
+                        <span aria-hidden className="text-2xl">{service.icon}</span>
+                      ) : null}
                     </div>
                   )}
                   <CardTitle className="text-2xl font-bold text-gray-900 mb-3">
