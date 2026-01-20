@@ -8,5 +8,10 @@ export function middleware(req: NextRequest) {
     url.pathname = "/logo.svg"; // served from public/
     return NextResponse.rewrite(url);
   }
+  // Handle legacy service URL
+  if (url.pathname === "/services/authorization-verification") {
+    url.pathname = "/services/authorization";
+    return NextResponse.redirect(url);
+  }
   return NextResponse.next();
 }
