@@ -32,6 +32,7 @@ export function PageBuilder({ blocks }: PageBuilderProps) {
             return <HeroBlock key={key} data={block} />;
 
           case "services":
+          case "servicesSection":
             return <ServicesBlock key={key} data={block} />;
 
           case "features":
@@ -47,12 +48,14 @@ export function PageBuilder({ blocks }: PageBuilderProps) {
             return <CTABlock key={key} data={block} />;
 
           case "team":
+          case "teamSection":
             return <TeamBlock key={key} data={block} />;
 
           case "contact":
             return <ContactBlock key={key} data={block} />;
 
           case "richText":
+          case "richTextSection":
             return <RichTextBlock key={key} data={block} />;
 
           default:
